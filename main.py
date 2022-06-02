@@ -22,7 +22,7 @@ board = ["-", "-", "-", "-",
 
 
 
-color_dictionary = {"-": "gray", "2": "white", "4": "beige", "8": "orange", "16": "darkorange", "32": "tomato", "64": "orangered",
+color_dictionary = {"-": "gray", "2": "white", "4": "moccasin", "8": "sandybrown", "16": "darkorange", "32": "tomato", "64": "orangered",
                     "128": "khaki", "256": "gold", "512": "gold", "1024": "gold", "2048": "gold"}
 
 button_texts = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
@@ -33,22 +33,25 @@ button_colors = ["gray", "gray", "gray", "gray", "gray", "gray", "gray", "gray",
 master = Tk()
 button_font = tkFont.Font(family="Helvetica", size=20, weight= 'bold')
 
-B = Button(master, text = button_texts[0], height = 4, width = 8, bg = button_colors[0], bd = 10, font = button_font)
-B1 = Button(master, text = button_texts[1], height = 4, width = 8, bg = button_colors[1], bd = 10, font = button_font)
-B2 = Button(master, text = button_texts[2], height = 4, width = 8, bg = button_colors[2], bd = 10, font = button_font)
-B3 = Button(master, text = button_texts[3], height = 4, width = 8, bg = button_colors[3], bd = 10, font = button_font)
-B4 = Button(master, text = button_texts[4], height = 4, width = 8, bg = button_colors[4], bd = 10, font = button_font)
-B5 = Button(master, text = button_texts[5], height = 4, width = 8, bg = button_colors[5], bd = 10, font = button_font)
-B6 = Button(master, text = button_texts[6], height = 4, width = 8, bg = button_colors[6], bd = 10, font = button_font)
-B7 = Button(master, text = button_texts[7], height = 4, width = 8, bg = button_colors[7], bd = 10, font = button_font)
-B8 = Button(master, text = button_texts[8], height = 4, width = 8, bg = button_colors[8], bd = 10, font = button_font)
-B9 = Button(master, text = button_texts[9], height = 4, width = 8, bg = button_colors[9], bd = 10, font = button_font)
-B10 = Button(master, text = button_texts[10], height = 4, width = 8, bg = button_colors[10], bd = 10, font = button_font)
-B11 = Button(master, text = button_texts[11], height = 4, width = 8, bg = button_colors[11], bd = 10, font = button_font)
-B12 = Button(master, text = button_texts[12], height = 4, width = 8, bg = button_colors[12], bd = 10, font = button_font)
-B13 = Button(master, text = button_texts[13], height = 4, width = 8, bg = button_colors[13], bd = 10, font = button_font)
-B14 = Button(master, text = button_texts[14], height = 4, width = 8, bg = button_colors[14], bd = 10, font = button_font)
-B15 = Button(master, text = button_texts[15], height = 4, width = 8, bg = button_colors[15], bd = 10, font = button_font)
+frame = Frame(master, bg="dimgray")
+
+
+B = Button(master, text = button_texts[0], height = 4, width = 8, bg = button_colors[0], bd = 0, font = button_font)
+B1 = Button(master, text = button_texts[1], height = 4, width = 8, bg = button_colors[1], bd = 0, font = button_font)
+B2 = Button(master, text = button_texts[2], height = 4, width = 8, bg = button_colors[2], bd = 0, font = button_font)
+B3 = Button(master, text = button_texts[3], height = 4, width = 8, bg = button_colors[3], bd = 0, font = button_font)
+B4 = Button(master, text = button_texts[4], height = 4, width = 8, bg = button_colors[4], bd = 0, font = button_font)
+B5 = Button(master, text = button_texts[5], height = 4, width = 8, bg = button_colors[5], bd = 0, font = button_font)
+B6 = Button(master, text = button_texts[6], height = 4, width = 8, bg = button_colors[6], bd = 0, font = button_font)
+B7 = Button(master, text = button_texts[7], height = 4, width = 8, bg = button_colors[7], bd = 0, font = button_font)
+B8 = Button(master, text = button_texts[8], height = 4, width = 8, bg = button_colors[8], bd = 0, font = button_font)
+B9 = Button(master, text = button_texts[9], height = 4, width = 8, bg = button_colors[9], bd = 0, font = button_font)
+B10 = Button(master, text = button_texts[10], height = 4, width = 8, bg = button_colors[10], bd = 0, font = button_font)
+B11 = Button(master, text = button_texts[11], height = 4, width = 8, bg = button_colors[11], bd = 0, font = button_font)
+B12 = Button(master, text = button_texts[12], height = 4, width = 8, bg = button_colors[12], bd = 0, font = button_font)
+B13 = Button(master, text = button_texts[13], height = 4, width = 8, bg = button_colors[13], bd = 0, font = button_font)
+B14 = Button(master, text = button_texts[14], height = 4, width = 8, bg = button_colors[14], bd = 0, font = button_font)
+B15 = Button(master, text = button_texts[15], height = 4, width = 8, bg = button_colors[15], bd = 0, font = button_font)
 
 button_dict = {0: B, 1: B1, 2: B2, 3: B3, 4: B4, 5: B5, 6: B6, 7: B7, 8: B8, 9: B9, 10: B10, 11: B11, 12: B12, 13: B13, 14: B14, 15: B15}
 button_dict2 = {0: B, 1: B1, 2: B2, 3: B3, 4: B4, 5: B5, 6: B6, 7: B7, 8: B8, 9: B9, 10: B10, 11: B11, 12: B12, 13: B13, 14: B14, 15: B15}
@@ -92,22 +95,22 @@ def generate_board():
     # B14 = Button(master, text = button_texts[14], height = 4, width = 8, bg = button_colors[14], bd = 10, font = button_font).grid(row=3, column=2)
     # B15 = Button(master, text = button_texts[15], height = 4, width = 8, bg = button_colors[15], bd = 10, font = button_font).grid(row=3, column=3)
     
-    button_dict[0].grid(row=0, column=0)
-    button_dict[1].grid(row=0, column=1)
-    button_dict[2].grid(row=0, column=2)
-    button_dict[3].grid(row=0, column=3)
-    button_dict[4].grid(row=1, column=0)
-    button_dict[5].grid(row=1, column=1)
-    button_dict[6].grid(row=1, column=2)
-    button_dict[7].grid(row=1, column=3)
-    button_dict[8].grid(row=2, column=0)
-    button_dict[9].grid(row=2, column=1)
-    button_dict[10].grid(row=2, column=2)
-    button_dict[11].grid(row=2, column=3)
-    button_dict[12].grid(row=3, column=0)
-    button_dict[13].grid(row=3, column=1)
-    button_dict[14].grid(row=3, column=2)
-    button_dict[15].grid(row=3, column=3)
+    button_dict[0].grid(row=0, column=0, padx = 5, pady=5)
+    button_dict[1].grid(row=0, column=1, padx = 5, pady=5)
+    button_dict[2].grid(row=0, column=2, padx = 5, pady=5)
+    button_dict[3].grid(row=0, column=3, padx = 5, pady=5)
+    button_dict[4].grid(row=1, column=0, padx = 5, pady=5)
+    button_dict[5].grid(row=1, column=1, padx = 5, pady=5)
+    button_dict[6].grid(row=1, column=2, padx = 5, pady=5)
+    button_dict[7].grid(row=1, column=3, padx = 5, pady=5)
+    button_dict[8].grid(row=2, column=0, padx = 5, pady=5)
+    button_dict[9].grid(row=2, column=1, padx = 5, pady=5)
+    button_dict[10].grid(row=2, column=2, padx = 5, pady=5)
+    button_dict[11].grid(row=2, column=3, padx = 5, pady=5)
+    button_dict[12].grid(row=3, column=0, padx = 5, pady=5)
+    button_dict[13].grid(row=3, column=1, padx = 5, pady=5)
+    button_dict[14].grid(row=3, column=2, padx = 5, pady=5)
+    button_dict[15].grid(row=3, column=3, padx = 5, pady=5)
     
 
     #master.mainloop()
@@ -584,22 +587,22 @@ def update_with_two():
     new_dict[new_index]['text'] = "2"
     new_dict[new_index]['bg'] = "white"
 
-    new_dict[0].grid(row=0, column=0)
-    new_dict[1].grid(row=0, column=1)
-    new_dict[2].grid(row=0, column=2)
-    new_dict[3].grid(row=0, column=3)
-    new_dict[4].grid(row=1, column=0)
-    new_dict[5].grid(row=1, column=1)
-    new_dict[6].grid(row=1, column=2)
-    new_dict[7].grid(row=1, column=3)
-    new_dict[8].grid(row=2, column=0)
-    new_dict[9].grid(row=2, column=1)
-    new_dict[10].grid(row=2, column=2)
-    new_dict[11].grid(row=2, column=3)
-    new_dict[12].grid(row=3, column=0)
-    new_dict[13].grid(row=3, column=1)
-    new_dict[14].grid(row=3, column=2)
-    new_dict[15].grid(row=3, column=3)
+    new_dict[0].grid(row=0, column=0, padx = 5, pady=5)
+    new_dict[1].grid(row=0, column=1, padx = 5, pady=5)
+    new_dict[2].grid(row=0, column=2, padx = 5, pady=5)
+    new_dict[3].grid(row=0, column=3, padx = 5, pady=5)
+    new_dict[4].grid(row=1, column=0, padx = 5, pady=5)
+    new_dict[5].grid(row=1, column=1, padx = 5, pady=5)
+    new_dict[6].grid(row=1, column=2, padx = 5, pady=5)
+    new_dict[7].grid(row=1, column=3, padx = 5, pady=5)
+    new_dict[8].grid(row=2, column=0, padx = 5, pady=5)
+    new_dict[9].grid(row=2, column=1, padx = 5, pady=5)
+    new_dict[10].grid(row=2, column=2, padx = 5, pady=5)
+    new_dict[11].grid(row=2, column=3, padx = 5, pady=5)
+    new_dict[12].grid(row=3, column=0, padx = 5, pady=5)
+    new_dict[13].grid(row=3, column=1, padx = 5, pady=5)
+    new_dict[14].grid(row=3, column=2, padx = 5, pady=5)
+    new_dict[15].grid(row=3, column=3, padx = 5, pady=5)
 
 
 
@@ -626,22 +629,22 @@ def update():
 
     # elif inp == "d":
 
-    new_dict[0].grid(row=0, column=0)
-    new_dict[1].grid(row=0, column=1)
-    new_dict[2].grid(row=0, column=2)
-    new_dict[3].grid(row=0, column=3)
-    new_dict[4].grid(row=1, column=0)
-    new_dict[5].grid(row=1, column=1)
-    new_dict[6].grid(row=1, column=2)
-    new_dict[7].grid(row=1, column=3)
-    new_dict[8].grid(row=2, column=0)
-    new_dict[9].grid(row=2, column=1)
-    new_dict[10].grid(row=2, column=2)
-    new_dict[11].grid(row=2, column=3)
-    new_dict[12].grid(row=3, column=0)
-    new_dict[13].grid(row=3, column=1)
-    new_dict[14].grid(row=3, column=2)
-    new_dict[15].grid(row=3, column=3)
+    new_dict[0].grid(row=0, column=0, padx = 5, pady=5)
+    new_dict[1].grid(row=0, column=1, padx = 5, pady=5)
+    new_dict[2].grid(row=0, column=2, padx = 5, pady=5)
+    new_dict[3].grid(row=0, column=3, padx = 5, pady=5)
+    new_dict[4].grid(row=1, column=0, padx = 5, pady=5)
+    new_dict[5].grid(row=1, column=1, padx = 5, pady=5)
+    new_dict[6].grid(row=1, column=2, padx = 5, pady=5)
+    new_dict[7].grid(row=1, column=3, padx = 5, pady=5)
+    new_dict[8].grid(row=2, column=0, padx = 5, pady=5)
+    new_dict[9].grid(row=2, column=1, padx = 5, pady=5)
+    new_dict[10].grid(row=2, column=2, padx = 5, pady=5)
+    new_dict[11].grid(row=2, column=3, padx = 5, pady=5)
+    new_dict[12].grid(row=3, column=0, padx = 5, pady=5)
+    new_dict[13].grid(row=3, column=1, padx = 5, pady=5)
+    new_dict[14].grid(row=3, column=2, padx = 5, pady=5)
+    new_dict[15].grid(row=3, column=3, padx = 5, pady=5)
 
 
 
