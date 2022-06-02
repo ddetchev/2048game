@@ -118,6 +118,8 @@ def play():
 
     master.bind("<Up>", up)
     master.bind("<Down>", down)
+    master.bind("<Left>", left)
+    master.bind("<Right>", right)
         #inp = input()
         #update(inp)
 
@@ -312,81 +314,172 @@ def left(event):
         
     while count < 3:
         #i = 12
-        i = 0
+        i = 3
+        # just like up, start i at a high value, decrement by maybe 1, and do while i >= something
 
-        while i <= 8:
-            # 1st column spaces being free
-            if board[i + 4] == "-":
+        while i >=  1:
+            # 1st row spaces being free
+            if board[i - 1] == "-":
                 temp = board[i]
                 board[i] = "-"
-                board[i + 4] = temp
+                board[i - 1] = temp
             
-            # last row has a number
-            if board[12 - i] != "-":
-                # if number right below it is the same as the number above it, combine them, double the upper one, and make lower one empty
-                if board[12 - i - 4] != "-" and board[12 - i] == board[12 - i - 4]:
-                    num_version = int(board[12 - i])
+            # first column has a number
+            if board[3 - i] != "-":
+                # if number to the right of it is the same thing, double the left one and make the right one blank
+                if board[3 - i + 1] != "-" and board[3 - i] == board[3 - i + 1]:
+                    num_version = int(board[3 - i])
                     num_version *= 2
-                    board[12 - i] = str(num_version)
-                    board[12 - i - 4] = "-"
+                    board[3 - i] = str(num_version)
+                    board[3 - i + 1] = "-"
 
 
-            # 2nd column 
-            if board[i + 5] == "-":
-                temp = board[i + 1]
-                board[i + 1] = "-"
-                board[i + 5] = temp
+            # 2nd row 
+            if board[i + 3] == "-":
+                temp = board[i + 4]
+                board[i + 4] = "-"
+                board[i + 3] = temp
 
 
-            # last row has a number
-            if board[13 - i] != "-":
-                # if number right below it is the same as the number above it, combine them, double the upper one, and make lower one empty
-                if board[13 - i - 4] != "-" and board[13 - i] == board[13 - i - 4]:
-                    num_version = int(board[13 - i])
+            # first column has a number
+            if board[7 - i] != "-":
+                # if number to the right of it is the same thing, double the left one and make the right one blank
+                if board[7 - i + 1] != "-" and board[7 - i] == board[7 - i + 1]:
+                    num_version = int(board[7 - i])
                     num_version *= 2
-                    board[13 - i] = str(num_version)
-                    board[13 - i - 4] = "-"
+                    board[7 - i] = str(num_version)
+                    board[7 - i + 1] = "-"
             
 
 
-            # 3rd column
-            if board[i + 6] == "-":
-                temp = board[i + 2]
-                board[i + 2] = "-"
-                board[i + 6] = temp
-
-
-
-            # last row has a number
-            if board[14 - i] != "-":
-                # if number right below it is the same as the number above it, combine them, double the upper one, and make lower one empty
-                if board[14 - i - 4] != "-" and board[14 - i] == board[14 - i - 4]:
-                    num_version = int(board[14 - i])
-                    num_version *= 2
-                    board[14 - i] = str(num_version)
-                    board[14 - i - 4] = "-"
-
-
-            
-            # 4th column
+            # 3rd row
             if board[i + 7] == "-":
-                temp = board[i + 3]
-                board[i + 3] = "-"
+                temp = board[i + 8]
+                board[i + 8] = "-"
                 board[i + 7] = temp
 
 
+
+            # first column has a number
+            if board[11 - i] != "-":
+                # if number to the right of it is the same thing, double the left one and make the right one blank
+                if board[11 - i + 1] != "-" and board[11 - i] == board[11 - i + 1]:
+                    num_version = int(board[11 - i])
+                    num_version *= 2
+                    board[11 - i] = str(num_version)
+                    board[11 - i + 1] = "-"
+
+
             
-            # last row has a number
+            # 4th row
+            if board[i + 11] == "-":
+                temp = board[i + 12]
+                board[i + 12] = "-"
+                board[i + 11] = temp
+
+
+            
+            # first column has a number
             if board[15 - i] != "-":
-                # if number right below it is the same as the number above it, combine them, double the upper one, and make lower one empty
-                if board[15 - i - 4] != "-" and board[15 - i] == board[15 - i - 4]:
+                # if number to the right of it is the same thing, double the left one and make the right one blank
+                if board[15 - i + 1] != "-" and board[15 - i] == board[15 - i + 1]:
                     num_version = int(board[15 - i])
                     num_version *= 2
                     board[15 - i] = str(num_version)
-                    board[15 - i - 4] = "-"
+                    board[15 - i + 1] = "-"
 
 
-            i += 4
+            i -= 1
+            
+        count += 1
+
+    update()
+
+
+
+def right(event):
+    count = 0
+    
+    # for every changed spot in board, change the old button text and color and the new button spot text and color
+        
+    while count < 3:
+        #i = 12
+        i = 0
+        # just like up, start i at a high value, decrement by maybe 1, and do while i >= something
+
+        while i <=  2:
+            # 1st row spaces being free
+            if board[i + 1] == "-":
+                temp = board[i]
+                board[i] = "-"
+                board[i + 1] = temp
+            
+            # last column has a number
+            if board[3 - i] != "-":
+                # if number to the left of it is the same thing, double the right one and make the left one blank
+                if board[3 - i - 1] != "-" and board[3 - i] == board[3 - i - 1]:
+                    num_version = int(board[3 - i])
+                    num_version *= 2
+                    board[3 - i] = str(num_version)
+                    board[3 - i - 1] = "-"
+
+
+            # 2nd row 
+            if board[i + 5] == "-":
+                temp = board[i + 4]
+                board[i + 4] = "-"
+                board[i + 5] = temp
+
+
+            # last column has a number
+            if board[7 - i] != "-":
+                # if number to the left of it is the same thing, double the right one and make the left one blank
+                if board[7 - i - 1] != "-" and board[7 - i] == board[7 - i - 1]:
+                    num_version = int(board[7 - i])
+                    num_version *= 2
+                    board[7 - i] = str(num_version)
+                    board[7 - i - 1] = "-"
+            
+
+
+            # 3rd row
+            if board[i + 9] == "-":
+                temp = board[i + 8]
+                board[i + 8] = "-"
+                board[i + 9] = temp
+
+
+
+            # last column has a number
+            if board[11 - i] != "-":
+                # if number to the left of it is the same thing, double the right one and make the left one blank
+                if board[11 - i - 1] != "-" and board[11 - i] == board[11 - i - 1]:
+                    num_version = int(board[11 - i])
+                    num_version *= 2
+                    board[11 - i] = str(num_version)
+                    board[11 - i - 1] = "-"
+
+
+            
+            # 4th row
+            if board[i + 13] == "-":
+                temp = board[i + 12]
+                board[i + 12] = "-"
+                board[i + 13] = temp
+
+
+            
+            # last column has a number
+            if board[15 - i] != "-":
+                # if number to the left of it is the same thing, double the right one and make the left one blank
+                if board[15 - i - 1] != "-" and board[15 - i] == board[15 - i - 1]:
+                    num_version = int(board[15 - i])
+                    num_version *= 2
+                    board[15 - i] = str(num_version)
+                    board[15 - i - 1] = "-"
+
+
+            i += 1
             
         count += 1
 
