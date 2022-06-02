@@ -1,7 +1,9 @@
 from tkinter import *
 from tkinter import font as tkFont
+from tkinter import messagebox
 from random import randrange
 import random
+import sys
 
 # master = Tk()
 # w = Canvas(master, width=403, height=403)
@@ -21,7 +23,7 @@ board = ["-", "-", "-", "-",
 
 
 color_dictionary = {"-": "gray", "2": "white", "4": "beige", "8": "orange", "16": "darkorange", "32": "tomato", "64": "orangered",
-                    "128": "khaki", "256": "gold", "512": "gold", "1024": "gold"}
+                    "128": "khaki", "256": "gold", "512": "gold", "1024": "gold", "2048": "gold"}
 
 button_texts = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
 button_colors = ["gray", "gray", "gray", "gray", "gray", "gray", "gray", "gray", "gray", "gray", "gray", "gray", "gray", "gray", "gray", "gray"]
@@ -117,6 +119,15 @@ def play():
     #while not winner:
         #master.update_idletasks()
         #master.update()
+
+    # check for winner
+    for elem in board:
+        if elem == "2048":
+            messagebox.showinfo("Message", "Congratulations! You have won!")
+            return
+
+    # check for loser
+    
 
     master.bind("<Up>", up)
     master.bind("<Down>", down)
@@ -218,6 +229,10 @@ def up(event):
         count += 1
 
 
+    if board_check == board and "-" not in board:
+        messagebox.showinfo("Message", "You have lost!")
+        sys.exit()
+
     if board_check == board:
         update()
     else:
@@ -311,6 +326,11 @@ def down(event):
             i += 4
             
         count += 1
+
+    if board_check == board and "-" not in board:
+        messagebox.showinfo("Message", "You have lost!")
+        sys.exit()
+
 
     if board_check == board:
         update()
@@ -409,6 +429,12 @@ def left(event):
             
         count += 1
 
+
+
+    if board_check == board and "-" not in board:
+        messagebox.showinfo("Message", "You have lost!")
+        sys.exit()
+
     if board_check == board:
         update()
     else:
@@ -504,6 +530,11 @@ def right(event):
             i += 1
             
         count += 1
+
+
+    if board_check == board and "-" not in board:
+        messagebox.showinfo("Message", "You have lost!")
+        sys.exit()
 
     if board_check == board:
         update()
