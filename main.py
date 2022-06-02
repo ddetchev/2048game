@@ -18,6 +18,8 @@ board = ["-", "-", "-", "-",
          "-", "-", "-", "-",
          "-", "-", "-", "-"]
 
+
+
 color_dictionary = {"-": "gray", "2": "white", "4": "beige", "8": "orange", "16": "darkorange", "32": "tomato", "64": "orangered",
                     "128": "khaki", "256": "gold", "512": "gold", "1024": "gold"}
 
@@ -130,9 +132,10 @@ def play():
 
 
 def up(event):
-    new_dict = button_dict2
+    board_check = []
+    for elem in board:
+        board_check.append(elem)
     count = 0
-    
     # for every changed spot in board, change the old button text and color and the new button spot text and color
         
     while count < 3:
@@ -214,10 +217,17 @@ def up(event):
             
         count += 1
 
-    update()
+
+    if board_check == board:
+        update()
+    else:
+        update_with_two()
 
 
 def down(event):
+    board_check = []
+    for elem in board:
+        board_check.append(elem)
     count = 0
     
     # for every changed spot in board, change the old button text and color and the new button spot text and color
@@ -302,12 +312,18 @@ def down(event):
             
         count += 1
 
-    update()
+    if board_check == board:
+        update()
+    else:
+        update_with_two()
 
 
 
 
 def left(event):
+    board_check = []
+    for elem in board:
+        board_check.append(elem)
     count = 0
     
     # for every changed spot in board, change the old button text and color and the new button spot text and color
@@ -393,11 +409,17 @@ def left(event):
             
         count += 1
 
-    update()
+    if board_check == board:
+        update()
+    else:
+        update_with_two()
 
 
 
 def right(event):
+    board_check = []
+    for elem in board:
+        board_check.append(elem)
     count = 0
     
     # for every changed spot in board, change the old button text and color and the new button spot text and color
@@ -483,50 +505,19 @@ def right(event):
             
         count += 1
 
-    update()
+    if board_check == board:
+        update()
+    else:
+        update_with_two()
 
 
 
 
 
 
-def update():
+def update_with_two():
     new_dict = button_dict2
-    # inp = input()
-    # count = 0
-    # if inp == "w":
-    #     # for every changed spot in board, change the old button text and color and the new button spot text and color
-    #     print(inp)
-    #     while count < 3:
-    #         i = 12
-
-    #         while i >= 4:
-    #             if board[i - 4] == "-":
-    #                 temp = board[i]
-    #                 board[i] = "-"
-    #                 board[i - 4] = temp
-    #             if board[i - 3] == "-":
-    #                 temp = board[i + 1]
-    #                 board[i + 1] = "-"
-    #                 board[i - 3] = temp
-    #             if board[i - 2] == "-":
-    #                 temp = board[i + 2]
-    #                 board[i + 2] = "-"
-    #                 board[i - 2] = temp
-    #             if board[i - 1] == "-":
-    #                 temp = board[i + 3]
-    #                 board[i + 3] = "-"
-    #                 board[i - 1] = temp
-    #             i -= 4
-            
-    #         count += 1
-
-    #if inp == "w":
-     #   up()
-
-
-
-
+    
     # board done updating, now iterate through all button_texts and button_colors and then go thru button_dict with these arrays
     # to change it (use color_dictionary)
     for j, v in enumerate(board):
@@ -561,6 +552,48 @@ def update():
     
     new_dict[new_index]['text'] = "2"
     new_dict[new_index]['bg'] = "white"
+
+    new_dict[0].grid(row=0, column=0)
+    new_dict[1].grid(row=0, column=1)
+    new_dict[2].grid(row=0, column=2)
+    new_dict[3].grid(row=0, column=3)
+    new_dict[4].grid(row=1, column=0)
+    new_dict[5].grid(row=1, column=1)
+    new_dict[6].grid(row=1, column=2)
+    new_dict[7].grid(row=1, column=3)
+    new_dict[8].grid(row=2, column=0)
+    new_dict[9].grid(row=2, column=1)
+    new_dict[10].grid(row=2, column=2)
+    new_dict[11].grid(row=2, column=3)
+    new_dict[12].grid(row=3, column=0)
+    new_dict[13].grid(row=3, column=1)
+    new_dict[14].grid(row=3, column=2)
+    new_dict[15].grid(row=3, column=3)
+
+
+
+def update():
+    new_dict = button_dict2
+    
+    # board done updating, now iterate through all button_texts and button_colors and then go thru button_dict with these arrays
+    # to change it (use color_dictionary)
+    for j, v in enumerate(board):
+        button_texts[j] = v
+        button_colors[j] = color_dictionary[v]
+        
+    #new_dict = button_dict2
+    for k, w in enumerate(button_texts):
+        if w == "-":
+            new_dict[k]['text'] = ""
+        else:
+            new_dict[k]['text'] = button_texts[k]
+        new_dict[k]['bg'] = button_colors[k]
+
+    # elif inp == "a":
+
+    # elif inp == "s":
+
+    # elif inp == "d":
 
     new_dict[0].grid(row=0, column=0)
     new_dict[1].grid(row=0, column=1)
